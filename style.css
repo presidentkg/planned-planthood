@@ -93,6 +93,7 @@ main {
   --clr-easy: hsl(224, 86%, 58%);
   --clr-fragrant: hsl(327, 51%, 47%);
   --clr-fast: hsl(218, 11%, 34%);
+  --clr-spices: hsl(169, 86%, 28%);
 
   --border-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
@@ -219,40 +220,75 @@ header nav ul {
   }
 }
 
+.appriciated-plants{
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-400);
+  align-items: center;
+}
+
 .gallery{
   gap: var(--fs-100);
   padding: var(--fs-100);
   background-color: var(--clr-primary-light-1);
 }
 
+.gallery-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .gallery-img:nth-child(1){
-  grid-row: span 2; /*Bilden sträcks inte, tomrum under bildas*/
+  grid-area: one;
+}
+
+.gallery-img:nth-child(2){
+  grid-area: two;
+}
+
+.gallery-img:nth-child(3){
+  grid-area: three;
+}
+
+.gallery-img:nth-child(4){
+  grid-area: four;
+}
+
+.gallery-img:nth-child(5){
+  grid-area: five;
+}
+
+.gallery-img:nth-child(6){
+  grid-area: six;
 }
 
 .newsletter, .planted-plants{ /*Varför saknas delar av bilderna?*/
   background-color: var(--clr-primary-light-1);
-  .test{
+  .icon{
       background-color: var(--clr-green-400);
       width: 12rem;
       height: 12rem;
-      padding: var(--fs-100);
+      padding: var(--fs-900);
       border-radius: 100%;
       display: flex;
       align-items: center;
     }
 }
 
-div, article{
+div, article, section{
   padding: var(--fs-400);
 }
 
-@media (min-width: 50em){
+@media (min-width: 50em){ /*Gör en för plattor också*/
   .plants{
     grid-template-columns: repeat(3, 1fr);
   }
   .gallery{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /*Fel?*/
+    grid-template-areas:
+    "one one two three four four"
+    "one one five five six six"; /*Fel?*/
     
   }
   /*Ser till att om skärmen är tillräckligt stor grupperas bilderna på tilltänkt sett, annars staplas dom på varandra.*/
@@ -261,6 +297,8 @@ div, article{
 .plants{
   display: grid;
   gap: var(--fs-400);
+  max-width: 80%; 
+  margin-inline: auto; /*centrerar korten*/
 }
 
 .card{
@@ -275,7 +313,7 @@ div, article{
     "beskrivning"
     "footer";
   grid-template-rows: auto auto auto 1fr auto; /* Rad 1,2,3 och 5 tar så mycket utrymme som dess innehåll behöver, medans rad 4 tar resterande*/
-  gap: var(--fs-100);
+  gap: var(--fs-400);
 }
 
 
@@ -284,12 +322,68 @@ div, article{
   height: auto;
 } /*Ser till att bilden inte är bredare än kortet och behåller sina propotioner mellan höjd och bredd*/
 
-.category{
+.category-list{
+  display: flex;
+  flex-wrap: wrap; /*Gör så att kategorier lägger sig på en ny rad om platsen tar slut*/
+  gap: var(--fs-100);
+}
+
+.category-item{
   color: var(--clr-neutral-100);
-  background-color: var(--clr-flower);
+  background-color: var(--clr-flower); 
   border-radius: var(--fs-900);
   padding: var(--fs-100);
 }
+
+/*Ger varje typ av kategori en unik färg*/
+.flowers{
+  background-color: var(--clr-flower);
+}
+
+.edible{
+  background-color: var(--clr-edible);
+}
+
+.greenery{
+  background-color: var(--clr-green);
+}
+
+.sun-loving{
+  background-color: var(--clr-sunloving);
+}
+
+.easy-to-grow{
+  background-color: var(--clr-easy);
+}
+
+.decorative{
+  background-color: var(--clr-decorative);
+}
+
+.colorful{
+  background-color: var(--clr-colorful);
+}
+
+.hardy{
+  background-color: var(--clr-robust);
+}
+
+.spices{
+  background-color: var(--clr-spices);
+}
+
+.fragant{
+  background-color: var(--clr-fragrant);
+}
+
+.fast-growing{
+  background-color: var(--clr-fast);
+}
+
+.humidifying{
+  background-color: var(--clr-air);
+}
+
 
 .card-footer {
   background-color: var(--clr-primary-light-1);
