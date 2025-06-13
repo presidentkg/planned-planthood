@@ -13,6 +13,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  list-style: none;
 }
 
 /* dark mode user-agent-styles */
@@ -176,4 +177,159 @@ body {
   font-family: var(--font-base);
   background-color: var(--clr-accent-light-1);
   color: var(--clr-primary-dark);
+}
+
+/* -- Här börjar det jag kodat --*/
+h1 {
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+}
+
+header { /* tokigt på mobilskärm just nu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-neutral-100);
+  padding: var(--fs-100);
+}
+
+.green-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--fs-100); /* Skapar ett litet avstånd mellan SVG:n och texten*/
+    margin-right: var(--fs-900); /* Skapar ett avstånd mellan loggelementet och resterande listelement*/
+    svg{
+      stroke: var(--clr-green-400);
+      stroke-width: 12;
+      width: var(--fs-700);
+      height: var(--fs-700);
+    }
+}
+
+header nav ul {
+  display: flex;
+  gap: var(--fs-400);
+  li{
+    display: flex;
+    align-items: center;
+    color: var(--clr-green-400);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    font-size: var(--fs-200);
+  }
+}
+
+.gallery{
+  gap: var(--fs-100);
+  padding: var(--fs-100);
+  background-color: var(--clr-primary-light-1);
+}
+
+.gallery-img:nth-child(1){
+  grid-row: span 2; /*Bilden sträcks inte, tomrum under bildas*/
+}
+
+.newsletter, .planted-plants{ /*Varför saknas delar av bilderna?*/
+  background-color: var(--clr-primary-light-1);
+  svg{
+      background-color: var(--clr-green-400);
+      width: 12rem;
+      height: 12rem;
+      padding: var(--fs-900);
+      border-radius: 100%;
+    }
+}
+
+div, article{
+  padding: var(--fs-400);
+}
+
+@media (min-width: 50em){
+  .plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*Fel?*/
+  }
+  /*Ser till att om skärmen är tillräckligt stor grupperas bilderna på tilltänkt sett, annars staplas dom på varandra.*/
+}
+
+.plants{
+  display: grid;
+  gap: var(--fs-400);
+}
+
+.card{
+  background-color: var(--clr-primary-light-1);
+  border-radius: 10px;
+  box-shadow: var(--border-shadow);
+  display: grid;
+  grid-template-areas:
+    "img"
+    "categories"
+    "rubrik"
+    "beskrivning"
+    "footer";
+  grid-template-rows: auto auto auto 1fr auto; /* Rad 1,2,3 och 5 tar så mycket utrymme som dess innehåll behöver, medans rad 4 tar resterande*/
+  gap: var(--fs-100);
+}
+
+
+.img-article{
+  max-width: 100%; 
+  height: auto;
+} /*Ser till att bilden inte är bredare än kortet och behåller sina propotioner mellan höjd och bredd*/
+
+.category{
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-flower);
+  border-radius: var(--fs-900);
+  padding: var(--fs-100);
+}
+
+.card-footer {
+  background-color: var(--clr-primary-light-1);
+  display: grid;
+  
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--fs-100);
+  padding: var(--fs-100);
+  .avatar{
+    grid-row: 1 / span 2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  .name{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .date{
+  grid-column: 2;
+  grid-row: 2;
+  }
+}
+
+footer{
+  background-color: var(--clr-accent);
+  display: flex;
+  justify-content: space-around;
+  padding: var(--fs-900);
+}
+
+.white-logo{
+    display: flex;
+    align-items: center;
+    gap: var(--fs-400); /* Skapar ett litet avstånd mellan SVG:n och texten*/
+    svg{
+      width: var(--fs-700);
+      height: var(--fs-700);
+    }
+}
+
+aside{
+  display: flex;
+  flex-direction: column;
 }
