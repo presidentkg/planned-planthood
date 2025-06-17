@@ -186,38 +186,88 @@ h1 {
   font-weight: var(--fw-bold);
 }
 
+header {
+    background-color: white;
+    height: 100%;
+
+    nav {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 0;
+        margin-block: 0.25rem;
+        gap: 2rem;
+        width: 100%;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 3.5rem;
+
+            li {
+                font-weight: var(--fw-semi-bold);
+            }
+        }
+    }
+}
+
 header { /* tokigt på mobilskärm just nu */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: var(--clr-neutral-100);
   padding: var(--fs-100);
+  nav{
+    display: flex;
+    align-items: center;
+    gap: var(--fs-700);
+    justify-content: space-between;
+    ul{
+    display: flex;
+    gap: var(--fs-900);
+      li{
+        display: flex;
+        color: var(--clr-green-400);
+        font-weight: var(--fw-bold);
+        text-transform: uppercase;
+        font-size: var(--fs-500); 
+      }
+    }
+  }
 }
 
 .green-logo {
     display: flex;
     align-items: center;
-    gap: var(--fs-100); /* Skapar ett litet avstånd mellan SVG:n och texten*/
-    margin-right: var(--fs-900); /* Skapar ett avstånd mellan loggelementet och resterande listelement*/
+    gap: var(--fs-400); /* Skapar ett litet avstånd mellan SVG:n och texten*/
     svg{
       stroke: var(--clr-green-400);
       stroke-width: 12;
-      width: var(--fs-700);
-      height: var(--fs-700);
+      width: var(--fs-800);
+      height: var(--fs-800);
     }
-}
-
-header nav ul {
-  display: flex;
-  gap: var(--fs-400);
-  li{
-    display: flex;
-    align-items: center;
     color: var(--clr-green-400);
     font-weight: var(--fw-bold);
-    text-transform: uppercase;
-    font-size: var(--fs-200);
-  }
+    font-size: var(--fs-500);   
+}
+
+
+.menu {
+  border: none;
+  background: transparent; /*Backround och border ser till så att vi bara ser linjerna och inte själva knappen*/
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.menu-line {
+  display: block; /* Gör span till ett block för att kunna ge bredd och höjd */
+  width: 100%;
+  height: calc(var(--fs-400) / 4);
+  background-color: var(--clr-green-400);
+  border-radius: var(--fs-400);
 }
 
 .appriciated-plants{
@@ -263,7 +313,7 @@ header nav ul {
   grid-area: six;
 }
 
-.newsletter, .planted-plants{ /*Varför saknas delar av bilderna?*/
+.newsletter, .planted-plants{
   background-color: var(--clr-primary-light-1);
   .icon{
       background-color: var(--clr-green-400);
@@ -276,28 +326,28 @@ header nav ul {
     }
 }
 
-div, article, section{
-  padding: var(--fs-400);
+.newsletter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--fs-400); 
 }
 
-@media (min-width: 50em){ /*Gör en för plattor också*/
-  .plants{
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .gallery{
-    display: grid;
-    grid-template-areas:
-    "one one two three four four"
-    "one one five five six six"; /*Fel?*/
-    
-  }
-  /*Ser till att om skärmen är tillräckligt stor grupperas bilderna på tilltänkt sett, annars staplas dom på varandra.*/
+.newsletter-content{
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-400);
+  flex-wrap: wrap;
+  max-width: 30%;
+}
+
+div, article, section{
+  padding: var(--fs-400);
 }
 
 .plants{
   display: grid;
   gap: var(--fs-400);
-  max-width: 80%; 
   margin-inline: auto; /*centrerar korten*/
 }
 
@@ -389,36 +439,70 @@ div, article, section{
   background-color: var(--clr-primary-light-1);
   display: grid;
   
-  grid-template-columns: auto 1fr;
+  grid-template-columns: var(--fs-900) 1fr;
   grid-template-rows: auto auto;
   gap: var(--fs-100);
   padding: var(--fs-100);
   .avatar{
     grid-row: 1 / span 2;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: var(--fs-900);
+    height: var(--fs-900);
   }
   .name{
     grid-column: 2;
     grid-row: 1;
   }
   .date{
-  grid-column: 2;
-  grid-row: 2;
+    grid-column: 2;
+    grid-row: 2;
   }
 }
+
+.planted-plants{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--fs-400); 
+}
+
+.planted-plants-content{
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-400);
+}
+
+.planted-plants-button {
+    border-radius: var(--fs-900);
+    padding: var(--fs-100);
+    color: white;
+    background-color: var(--clr-accent);
+    align-self: flex-end
+}
+
 
 footer{
   background-color: var(--clr-accent);
   display: flex;
   justify-content: space-around;
   padding: var(--fs-900);
+  color: var(--clr-neutral-100);
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fs-400);
+    li:has(svg){
+      display: flex;
+      align-items: center;
+      gap: var(--fs-200);
+    }
+  }
 }
 
 .white-logo{
     display: flex;
     align-items: center;
+    font-weight: var(--fw-bold);
     gap: var(--fs-400); /* Skapar ett litet avstånd mellan SVG:n och texten*/
     svg{
       width: var(--fs-700);
@@ -429,4 +513,59 @@ footer{
 aside{
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 64em){ /* För desktop */
+  header nav{
+    gap: var(--fs-900);
+    justify-content: center;
+    ul{
+      margin-left: var(--fs-900);
+    }
+  }
+
+  .menu{
+    display: none; 
+  }
+
+  .plants{
+    max-width: 80%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .gallery{
+    max-width: 80%;
+    display: grid;
+    grid-template-areas:
+    "one one two three four four"
+    "one one five five six six";
+    
+  }
+}
+@media (max-width: 64em){ /* För tablets */
+  .navigation-desktop{
+    display: none;
+  }
+
+  .plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery{
+    display: grid;
+    grid-template-areas:
+    "one two three"
+    "four five six";
+  }
+}
+
+@media (max-width: 48em){ /*För mobiltelefoner */
+  .plants{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gallery{
+    display: grid;
+    grid-template-areas:
+    "one two"
+    "three four"
+    "five six";
+  }
 }
