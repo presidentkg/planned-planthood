@@ -338,7 +338,29 @@ header { /* tokigt på mobilskärm just nu */
   flex-direction: column;
   gap: var(--fs-400);
   flex-wrap: wrap;
-  max-width: 30%;
+}
+
+.newsletter-content-email{
+  position: relative;
+  display: flex;
+  align-items: center;
+  label{
+    display: none;
+  }
+  input{
+    flex-grow: 1;
+    border-radius: var(--fs-900);
+    padding: var(--fs-200);
+  }
+  .send{
+    position: absolute;
+    right: var(--fs-500);
+    padding: var(--fs-100) var(--fs-400);
+    border: none;
+    background-color: var(--clr-green-400);
+    border-radius: var(--fs-900);
+    color: var(--clr-neutral-100);
+  }
 }
 
 div, article, section{
@@ -347,6 +369,7 @@ div, article, section{
 
 .plants{
   display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
   gap: var(--fs-400);
   margin-inline: auto; /*centrerar korten*/
 }
@@ -356,13 +379,8 @@ div, article, section{
   border-radius: 10px;
   box-shadow: var(--border-shadow);
   display: grid;
-  grid-template-areas:
-    "img"
-    "categories"
-    "rubrik"
-    "beskrivning"
-    "footer";
-  grid-template-rows: auto auto auto 1fr auto; /* Rad 1,2,3 och 5 tar så mycket utrymme som dess innehåll behöver, medans rad 4 tar resterande*/
+  grid-template-rows: subgrid;
+  grid-row: span 5; /* Ser till att .cards rader spänner ut sig över .plants alla fem redar */
   gap: var(--fs-400);
 }
 
@@ -528,6 +546,10 @@ aside{
     display: none; 
   }
 
+  .newsletter-content{
+    max-width: 40%;
+  }
+
   .plants{
     max-width: 80%;
     grid-template-columns: repeat(4, 1fr);
@@ -544,6 +566,11 @@ aside{
 @media (max-width: 64em){ /* För tablets */
   .navigation-desktop{
     display: none;
+  }
+
+  .newsletter, .planted-plants{
+    flex-direction: column;
+    justify-content: center;
   }
 
   .plants{
