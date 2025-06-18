@@ -205,7 +205,7 @@ header {
         text-transform: uppercase;
         font-size: var(--fs-500); 
       }
-      a:hover{
+      a:hover, a:focus-visible{
         text-decoration: none;
         background-color: var(--clr-green-400);
         color: var(--clr-neutral-100);
@@ -255,7 +255,7 @@ header {
   border-radius: var(--fs-400);
 }
 
-.menu:hover{
+.menu:hover, .meny:focus-visible{
   background-color: var(--clr-green-400);
   .menu-line{
     background-color: var(--clr-neutral-100);
@@ -353,7 +353,7 @@ header {
 }
 
 
-.send:hover, .planted-plants-button:hover{
+.send:hover, .send:focus-visible, .planted-plants-button:hover, .planted-plants-button:focus-visible{
   border: var(--fs-025) solid var(--clr-green-400);
   color: var(--clr-green-400);
   background-color: var(--clr-neutral-100);
