@@ -110,6 +110,7 @@ main {
   --fs-050: 0.25rem;
   --fs-100: 0.625rem;
   --fs-200: 0.75rem;
+  --fs-300: 0.8rem;
   --fs-400: 1rem;
   --fs-500: 1.25rem;
   --fs-600: 1.5rem;
@@ -327,16 +328,14 @@ header {
   flex-direction: column;
   gap: var(--fs-400);
   flex-wrap: wrap; /* Möjliggör radbrytning */
-  text-align: center; /* Inte egentligen vad jag tänkt använda, men genom att centrera texten kommer jag runt problemet med att  h2 inte är centrerad som tänkt på mindre skärmar */
+  text-align: center; 
 }
 
 .newsletter-content-email{
   position: relative; /* Möjliggör att vi kan flytta på barnen, i det här fallet vill vi kunna flytta på knappen */
   display: flex;
   align-items: center;
-  label{
-    display: none; /* Gömmer label:n */
-  }
+  
   input{
     flex-grow: 1; /* Gör så att input:en tar upp allt extrautrymme */
     border-radius: var(--fs-900);
@@ -390,6 +389,7 @@ div, article, section{
 .category-list{
   display: flex;
   flex-wrap: wrap; /* Gör så att kategorier lägger sig på en ny rad om platsen tar slut */
+  align-items: flex-start;
   gap: var(--fs-100);
 }
 
@@ -436,7 +436,7 @@ div, article, section{
   background-color: var(--clr-spices);
 }
 
-.fragant{
+.fragrant{
   background-color: var(--clr-fragrant);
 }
 
@@ -479,6 +479,7 @@ div, article, section{
 }
 
 .planted-plants-button {
+  border: 1px solid var(--clr-accent);
     border-radius: var(--fs-900);
     padding: var(--fs-100);
     color: var(--clr-neutral-100);
@@ -496,13 +497,13 @@ div, article, section{
     display: flex;
     flex-direction: column;
     gap: var(--fs-400);
+    a{
+      color: var(--clr-neutral-100);
+    }
     li:has(svg){ /* Ser till att svg:n för telefon och email hamnar på samma rad som deras text */
       display: flex;
       align-items: center;
       gap: var(--fs-200);
-      a{
-        color: var(--clr-neutral-100);
-      }
     }
   }
 }
@@ -525,14 +526,6 @@ aside{
     display: none; 
   }
 
-  .newsletter-content{
-    max-width: 40%; /* Minskar storleken så att input:en blir på tok för lång för desktop */
-  }
-
-  .plants{
-    max-width: 80%;
-    grid-template-columns: repeat(4, 1fr);
-  }
   .gallery{
     max-width: 80%;
     display: grid;
@@ -541,10 +534,27 @@ aside{
     "one one five five six six";
     
   }
+
+  .newsletter-content{
+    max-width: 30%; /* Minskar storleken så att input:en blir på tok för lång för desktop */
+  }
+
+  .plants{
+    max-width: 80%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
 }
 @media (max-width: 64em){ /* För tablets */
   .navigation-desktop{
     display: none;
+  }
+
+  .gallery{
+    display: grid;
+    grid-template-areas:
+    "one two three"
+    "four five six";
   }
 
   .newsletter, .planted-plants{ /* Gör så att allt i .newsletter och .planted-plants staplas på varandra på mindre skärmar */
@@ -559,23 +569,22 @@ aside{
   .plants{
     grid-template-columns: repeat(2, 1fr);
   }
-  .gallery{
-    display: grid;
-    grid-template-areas:
-    "one two three"
-    "four five six";
-  }
 }
 
 @media (max-width: 48em){ /*För mobiltelefoner */
-  .plants{
-    grid-template-columns: repeat(1, 1fr);
-  }
   .gallery{
     display: grid;
     grid-template-areas:
     "one two"
     "three four"
     "five six";
+  }
+
+  .newsletter-content-email input::placeholder {
+    font-size: var(--fs-300); /* Minskar storleken för placeholder-texten lite på telefoner */
+  }
+
+  .plants{
+    grid-template-columns: repeat(1, 1fr);
   }
 }
