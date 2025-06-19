@@ -186,6 +186,7 @@ body {
 }
 
 /* -- Här börjar det jag kodat (har dock lagt till några variabler ovanför själv) --*/
+
 header {
   background-color: var(--clr-neutral-100);
   padding: var(--fs-100);
@@ -281,7 +282,7 @@ header {
   object-fit: cover; /* Ser till att hela rutorna fylls, samtidigt som ration mellan bildens höjd och bredd inte förändras */ 
 }
 
-/* Följande ser till att varje bild hamnar på önskad plats. För att se de olika definitionerna av grid-template-areas beroende på skärmstorlek, scrolla ner till @media i botten av detta dokument */
+/* Följande ser till att varje bild hamnar på önskad plats. För att se de olika definitionerna av grid-template-areas beroende på skärmstorlek, scrolla ner till @media i botten av denna fil */
 .gallery-img:nth-child(1){
   grid-area: one;
 }
@@ -332,7 +333,7 @@ header {
 }
 
 .newsletter-content-email{
-  position: relative; /* Möjliggör att vi kan flytta på barnen, i det här fallet vill vi kunna flytta på knappen */
+  position: relative; /* Möjliggör att barnen kan flytta på, i det här fallet vill vi kunna flytta på knappen */
   display: flex;
   align-items: center;
   
@@ -536,7 +537,7 @@ aside{
   }
 
   .newsletter-content{
-    max-width: 30%; /* Minskar storleken så att input:en blir på tok för lång för desktop */
+    max-width: 30%; /* Minskar storleken så att input:en inte blir på tok för lång för desktop */
   }
 
   .plants{
@@ -580,8 +581,9 @@ aside{
     "five six";
   }
 
+  /*Jag är inte nöjd med hur inputen ser ut på de olika skärmarna, men jag fick lämna det som det är just nu och helt enkelt minska storleken för placeholder-texten lite på telefoner för att knappen inte skulle täcka delar av texten */
   .newsletter-content-email input::placeholder {
-    font-size: var(--fs-300); /* Minskar storleken för placeholder-texten lite på telefoner */
+    font-size: var(--fs-300);
   }
 
   .plants{
