@@ -1,3 +1,6 @@
+# Översikt
+Detta repo är min lösning på en tidig uppgift/projekt i frondendutvecklingsprogrammet jag studerade under våren till hösten 2025. Nedan följer intruktionerna vi fick för att lösa uppgiften.
+
 # Inlämningsuppgift Planned Planthood
 
 Uppgiften är att göra en sida enligt nedanståend bilder, text och kod-stycken.<br>
